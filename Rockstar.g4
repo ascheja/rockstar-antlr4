@@ -30,7 +30,7 @@ comparisionOp: KW_IS
              | KW_IS WS KW_AS WS (KW_GREATER_EQUAL|KW_LESS_EQUAL) WS KW_AS
 ;
 
-assignmentStmt: variable (APOSTROPHE_S | WS (KW_IS|KW_WAS_WERE)) WS (poeticNumberLiteral|constant)
+assignmentStmt: variable (APOSTROPHE_S | WS (KW_IS|KW_WAS_WERE)) WS (poeticNumberLiteral|constant|literal)
               | KW_LET WS variable WS KW_BE WS expression
               | KW_PUT WS expression WS KW_INTO WS variable
               | variable WS KW_SAYS WS poeticStringLiteral
@@ -62,6 +62,7 @@ constant: CONSTANT_UNDEFINED
         | CONSTANT_NULL
         | CONSTANT_TRUE
         | CONSTANT_FALSE
+        | CONSTANT_EMPTY
 ;
 
 literal: NUMERIC_LITERAL | STRING_LITERAL;
